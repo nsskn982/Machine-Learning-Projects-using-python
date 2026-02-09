@@ -1,0 +1,9 @@
+{
+  "cell_size_m": 0.25,
+  "grid": [
+    ["tile", "tile", "wood", "wood"],
+    ["tile", "carpet", "carpet", "wood"],
+    ["tile", "carpet", "carpet", "wood"],
+    ["tile", "tile", "wood", "wood"]
+  ]
+}
