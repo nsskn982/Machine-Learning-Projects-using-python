@@ -41,6 +41,7 @@ def extract_features(bgr: np.ndarray) -> np.ndarray:
     - LBP histogram (256 bins for 8-neighbor LBP)
     - HSV color histogram (4x4x4 bins)
     """
+    # Downsample for speed and to make features consistent across inputs.
     resized = cv2.resize(bgr, (128, 128))
     gray = cv2.cvtColor(resized, cv2.COLOR_BGR2GRAY)
     hsv = cv2.cvtColor(resized, cv2.COLOR_BGR2HSV)

@@ -30,6 +30,7 @@ def load_dataset(data_root: Path) -> tuple[np.ndarray, np.ndarray]:
     features = []
     labels = []
 
+    # Expect a folder per label (data_root/label_name/*.jpg).
     for label_dir in sorted(data_root.iterdir()):
         if not label_dir.is_dir():
             continue
@@ -39,6 +40,7 @@ def load_dataset(data_root: Path) -> tuple[np.ndarray, np.ndarray]:
             if image_path.suffix.lower() not in VALID_EXTENSIONS:
                 continue
 
+            # Read image in BGR order (OpenCV default).
             image = cv2.imread(str(image_path))
             if image is None:
                 continue
@@ -64,6 +66,7 @@ def main() -> None:
         x_data, y_data, test_size=0.2, random_state=42, stratify=y_data
     )
 
+    # Scale features then use an RBF SVM for non-linear decision boundaries.
     model = Pipeline(
         [
             ("scaler", StandardScaler()),

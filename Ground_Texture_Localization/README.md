@@ -18,6 +18,17 @@ This mini-project shows how to build a **ground texture recognition** and **loca
 
 > The algorithm uses only camera frames and an optional odometry estimate. You can start without wheel encoders and add them later.
 
+## Hardware specifications (typical)
+
+These are **typical** specs for the referenced parts. Always verify exact specs from the vendor pages you linked.
+
+- **Raspberry Pi HQ Camera (IMX477)**: ~12.3MP sensor, supports interchangeable C/CS lenses.
+- **Raspberry Pi Camera v2 (IMX219)**: ~8MP sensor, fixed-focus lens.
+- **Raspberry Pi 1.6MP Shutter Cam**: ~1.6MP global shutter sensor (better for motion, less rolling-shutter blur).
+- **Jetson Nano (4GB)**: 128‑core Maxwell GPU, quad‑core ARM CPU; sufficient for classical CV or small CNNs.
+
+> Lens choices (e.g., 8–50mm, 16mm telephoto) affect field of view and texture scale. Pick a lens so each frame covers multiple texture “patches” for robust classification.
+
 ## Quick start
 
 ### 1) Install dependencies

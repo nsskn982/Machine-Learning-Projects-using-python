@@ -58,6 +58,7 @@ def load_map(path: Path) -> MapConfig:
 def init_particles(count: int, map_cfg: MapConfig) -> list[Particle]:
     particles = []
     for _ in range(count):
+        # Sample particles uniformly across the map area.
         x = random.uniform(0, map_cfg.width * map_cfg.cell_size_m)
         y = random.uniform(0, map_cfg.height * map_cfg.cell_size_m)
         particles.append(Particle(x=x, y=y, weight=1.0 / count))

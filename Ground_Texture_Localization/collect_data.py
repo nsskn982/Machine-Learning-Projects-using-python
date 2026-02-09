@@ -24,6 +24,7 @@ def main() -> None:
     output_dir = Path(args.out)
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    # Open the camera. Use --device to select CSI/USB index on Jetson/Pi.
     cap = cv2.VideoCapture(args.device)
     if not cap.isOpened():
         raise RuntimeError("Could not open camera. Check device index and permissions.")
@@ -49,7 +50,7 @@ def main() -> None:
         )
         cv2.imshow("Capture", frame)
 
-        # Save frames at a fixed interval to avoid near-duplicates.
+        # Save frames at a fixed interval to avoid near-duplicates and reduce storage.
         now = time.time()
         if now - last_time >= args.interval:
             filename = output_dir / f"{args.label}_{count:04d}.jpg"
