@@ -1,0 +1,10 @@
+# Jetson-compatible package set (install NVIDIA-provided torch wheels for your JetPack version)
+numpy>=1.23,<2.0
+opencv-python>=4.8
+Pillow>=9.5
+
+# For JetPack 5.x (Python 3.8/3.10), use NVIDIA wheels from:
+# https://forums.developer.nvidia.com/t/pytorch-for-jetson
+# Example pinned versions commonly used on Jetson Nano/Xavier/Orin:
+torch==2.1.0
+torchvision==0.16.1
